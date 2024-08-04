@@ -1,0 +1,30 @@
+name: Lezzme
+
+on: 
+  issues:
+    types: [opened]
+    pull_request_target:
+     types: [opened]
+
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome issue
+        if: github.event_name == 'issues'
+        uses: actions/github-script@v5
+        with:
+          script: 
+            const issue = context.issue;
+            const repo = context.repo;
+            const issueAuthor = context.payload.sender.login;
+            const welcomeMessage = `
+              Hi @${IssueAuthor}! :wave:
+              Thank you for creating an issue in our repository! We appreciate your contribution
+            `;
+                    
+                    
+                    
+          
+      
+    
